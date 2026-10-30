@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="detalhes">
+
+    <h2>
+        {{ carro.marca }} {{ carro.modelo }}
+    </h2>
+
+    {% if carro.foto %}
+
+        <img class="foto-carro"
+             src="{{ carro.foto }}"
+             alt="Foto do {{ carro.modelo }}">
+
+    {% endif %}
+
+    <p><strong>ID:</strong> {{ carro.id }}</p>
+
+    <p><strong>Marca:</strong> {{ carro.marca }}</p>
+
+    <p><strong>Modelo:</strong> {{ carro.modelo }}</p>
+
+    <h3>Opcionais</h3>
+
+    <ul>
+        {% for opcional in carro.get("opcionais", []) %}
+            <li>{{ opcional }}</li>
+        {% else %}
+            <li>Nenhum opcional cadastrado.</li>
+        {% endfor %}
+    </ul>
+
+    <a class="botao" href="/carros">
+        Voltar ao catalogo
+    </a>
+
+</div>
+
+{% endblock %}

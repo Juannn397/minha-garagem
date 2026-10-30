@@ -1,0 +1,14 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Obrigado pela avaliacao!</h2>
+
+<p>Sua nota foi: {{ nota }}</p>
+
+<p>Seu comentario: {{ comentario }}</p>
+
+<a href="/feedback">Fazer outra avaliacao</a>
+
+{% endblock %}

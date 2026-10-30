@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Carros Disponiveis</h2>
+
+<p>
+    Conheca os veiculos da nossa garagem.
+</p>
+
+<div class="galeria">
+
+    {% for carro in carros %}
+
+    <div class="card">
+
+        {% if carro.foto %}
+            <img src="{{ carro.foto }}"
+                 alt="Foto do {{ carro.modelo }}">
+        {% endif %}
+
+        <h3>
+            {{ carro.marca }} {{ carro.modelo }}
+        </h3>
+
+        <p>
+            {{ carro.opcionais | length }} opcionais
+        </p>
+
+        <a class="botao"
+           href="{{ url_for('buscar_id', numero=carro.id) }}">
+            Ver detalhes
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Gerenciador de Tarefas</h2>
+
+
+{% for mensagem in get_flashed_messages() %}
+    <p>{{ mensagem }}</p>
+{% endfor %}
+
+
+<form action="/adicionar" method="POST">
+
+    <input
+        type="text"
+        name="titulo"
+        placeholder="Digite uma nova tarefa"
+        maxlength="120"
+        required
+    >
+
+    <button type="submit">
+        Adicionar Tarefa
+    </button>
+
+</form>
+
+<h3>Minhas Tarefas</h3>
+
+<ul>
+    {% for tarefa in tarefas %}
+
+        
+<li>
+
+    {% if tarefa.feita %}
+        <s>{{ tarefa.titulo }}</s>
+    {% else %}
+        {{ tarefa.titulo }}
+    {% endif %}
+
+    <form
+        action="/concluir/{{ tarefa.id }}"
+        method="POST"
+        style="display:inline;"
+    >
+        <button type="submit">
+            {% if tarefa.feita %}
+                Desfazer
+            {% else %}
+                Concluir
+            {% endif %}
+        </button>
+    </form>
+    
+<form
+    action="/apagar/{{ tarefa.id }}"
+    method="POST"
+    style="display:inline;"
+    onsubmit="return confirm('Deseja apagar esta tarefa?');"
+>
+    <button type="submit">Apagar</button>
+</form>
+
+</li>
+
+
+    {% else %}
+
+        <li>Nenhuma tarefa cadastrada.</li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Minhas Notas</h2>
+
+{% for mensagem in get_flashed_messages() %}
+    <p>{{ mensagem }}</p>
+{% endfor %}
+
+<form method="POST">
+
+    <textarea
+        name="texto"
+        placeholder="Escreva sua nota"
+        maxlength="200"
+        required
+    ></textarea>
+
+    <br><br>
+
+    <button type="submit">Salvar Nota</button>
+
+</form>
+
+<hr>
+
+<h3>Notas cadastradas</h3>
+
+
+{% for nota in notas %}
+
+    <p>
+        {{ nota.id }} - {{ nota.texto }}
+
+        <a href="/editar/{{ nota.id }}">
+            Editar
+        </a>
+    </p>
+
+<form action="/excluir/{{ nota.id }}"
+      method="POST"
+      style="display:inline;">
+
+    <button type="submit">Excluir</button>
+
+</form>
+
+
+{% else %}
+
+
+    <p>Nenhuma nota cadastrada ainda.</p>
+
+{% endfor %}
+
+{% endblock %}

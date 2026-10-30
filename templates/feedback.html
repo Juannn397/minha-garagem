@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Avalie nossa garagem</h2>
+
+<form method="POST">
+
+    <label>Nota de 1 a 5:</label>
+
+    <select name="nota" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <p>Seu comentario:</p>
+
+    <textarea name="comentario" required></textarea>
+
+    <br><br>
+
+    <button type="submit">Enviar</button>
+
+</form>
+
+{% endblock %}

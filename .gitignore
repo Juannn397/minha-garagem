@@ -1,0 +1,16 @@
+
+# Banco de dados local
+instance/
+*.db
+
+# Arquivos temporarios do Python
+__pycache__/
+*.pyc
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Configuracoes e segredos locais
+.env
+.env.*
