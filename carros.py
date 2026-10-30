@@ -153,7 +153,24 @@ carros = [
             "Alerta de colisão",
             "Sensor de estacionamento"
         ]
-    }
+    }, 
+
+{
+    "id": 11,
+    "marca": "Jeep",
+    "modelo": "Renegade",
+    "foto": "https://cdn.motor1.com/images/mgl/0e9Om/s1/jeep-renegade-2022.jpg",
+    "opcionais": [
+        "Ar-condicionado digital",
+        "Direção elétrica",
+        "Central multimídia",
+        "Câmera de ré",
+        "Controle de estabilidade",
+        "Piloto automático"
+    ]
+}
+
+    
 ]
 
 @app.route("/id/<int:numero>")
